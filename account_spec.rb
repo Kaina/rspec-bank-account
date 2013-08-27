@@ -36,17 +36,21 @@ describe Account do
   end
 
   describe "#account_number" do
-    it "should only display last four numbers of account" do
-      last_four = /([*]*)(\d{4})/.match(@account_number)
+    it "should raise an error if accountnumber is invalid" do
+      expect { Account.new('54397820gerhoiu') }.to raise_error(InvalidAccountNumberError)
     end
 
   end
 
   describe "deposit!" do
-
+    it "should have a valid deposit value" do
+      expect { account.deposit!(-100) }.to raise_error(NegativeDepositError)
+    end
   end
 
   describe "#withdraw!" do
-
+    it "should have a valid withdraw value" do
+      expect { account.withdraw!(account.balance + 1)}.to raise_error(OverdraftError)
+    end
   end
 end
