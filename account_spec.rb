@@ -14,7 +14,7 @@ describe Account do
     end
 
     it "creates a Account object" do
-      account.should be_an_instance_of Account
+      account.should be_an_instance_of(Account)
     end
 
     it "requires two parameters" do
@@ -24,7 +24,7 @@ describe Account do
 
   describe "#transactions" do
     it "should be an array" do
-      account.transactions.class.should eq (Array)
+      account.transactions.class.should eq(Array)
     end
 
     it "should have a balance of the starting balance" do
@@ -41,7 +41,7 @@ describe Account do
 
   describe "#account_number" do
     it "should return return '******7890'" do
-        expect(account.acct_number).to eq ('******7890')
+        expect(account.acct_number).to eq('******7890')
     end
 
   end
@@ -54,7 +54,7 @@ describe Account do
     it "should add amount value to transactions array" do
       original_size = account.transactions.size
       account.deposit!(100)
-      expect(account.transactions.length).to eq (original_size + 1)
+      expect(account.transactions.length).to eq(original_size + 1)
     end
   end
 
@@ -66,7 +66,7 @@ describe Account do
     it "should add amount value to transactions array" do
       original_size = account.transactions.size
       account.withdraw!(10)
-      expect(account.transactions.length).to eq (original_size + 1)
+      expect(account.transactions.length).to eq(original_size + 1)
     end
   end
 end
